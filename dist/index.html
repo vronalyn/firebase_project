@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="style.css" />
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="./css/style.css" />
     <title>it | HUB</title>
     <script defer src="./bundle.js"></script>
+
   </head>
+  <style>
+    input:-webkit-autofill,
+      input:-webkit-autofill:hover, 
+      input:-webkit-autofill:focus, 
+      input:-webkit-autofill:active  {
+        transition: background-color 5000s;
+        -webkit-text-fill-color: #3f3e3e !important;
+      }
+  </style>
   <body>
     <div class="container">
       <div class="forms-container">
@@ -35,7 +45,7 @@
                 <i class="fab fa-twitter"></i>
               </a>
               <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
+                <button class="google-signIN"><i class="fab fa-google"></i></button>
               </a>
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
@@ -66,7 +76,7 @@
                 <i class="fab fa-twitter"></i>
               </a>
               <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
+                <button class="google-signIN"><i class="fab fa-google"></i></button>
               </a>
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
@@ -105,8 +115,21 @@
         </div>
       </div>
     </div>
+<script>
+    const sign_in_btn = document.querySelector("#sign-in-btn");
+    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".container");
 
-    <script src="app.js"></script>
+    sign_up_btn.addEventListener("click", () => {
+      container.classList.add("sign-up-mode");
+    });
+
+    sign_in_btn.addEventListener("click", () => {
+      container.classList.remove("sign-up-mode");
+    });
+
+</script>
+    
   </body>
 </html>
-<script type="module" src="auth.js"></script>
+<script 

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dashboard</title>
+    
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo"><a href="#">RMV</a></div>
+            <ul class="links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="App.html">Profile</a></li>
+            </ul>
+            <button id="logout" class="action-btn">Sign Out</button>
+            <div class="toggle-btn"> 
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="App.html">Profile</a></li>
+            <li><button id="logout" class="action-btn">Sign Out</button></li>
+        </div>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Welcome</h1>
+            <p>And witness moments frozen in time.<br> 
+                The art of photography is an expression of life. </p>
+        </section>
+    </main>
+<script>
+    const toggleBtn = document.querySelector('.toggle-btn')
+    const toggleBtnIcon = document.querySelector('.toggle-btn i')
+    const dropDownMenu = document.querySelector('.dropdown-menu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+            ? 'fa fa-xmark'
+            : 'fa fa-bars'
+        } 
+</script>
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js'
+        // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js'
+        // Add Firebase products that you want to use
+        import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js'
+        import { getFirestore, collection, addDoc, connectFirestoreEmulator} from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js'
+      
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGPOnEilGSDUFs2AHehyRmPvxtiWaCXbw",
+            authDomain: "rmv-project.firebaseapp.com",
+            projectId: "rmv-project",
+            storageBucket: "rmv-project.appspot.com",
+            messagingSenderId: "220570554353",
+            appId: "1:220570554353:web:0764b7e3f6c953eaf1be50",
+            measurementId: "G-TW4YWP18MS"
+            };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        console.log(app)
+
+        const auth = getAuth();
+
+        //----- Logout code start	  
+        document.getElementById("logout").addEventListener("click", function() {
+            signOut(auth).then(() => {
+            // Sign-out successful.
+            console.log('Sign-out successful.');
+            alert('Sign-out successful.');
+            window.location.href = "./index.html";
+            }).catch((error) => {
+            // An error happened.
+            console.log('An error happened.');
+            });		  		  
+        });
+</script>
+
+</body>
+</html>

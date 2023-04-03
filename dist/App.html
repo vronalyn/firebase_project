@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <button class="save">Save</button>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js'
+        // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js'
+        // Add Firebase products that you want to use
+        import { getAuth } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js'
+        import { getFirestore, collection, addDoc, connectFirestoreEmulator} from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js'
+      
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGPOnEilGSDUFs2AHehyRmPvxtiWaCXbw",
+            authDomain: "rmv-project.firebaseapp.com",
+            projectId: "rmv-project",
+            storageBucket: "rmv-project.appspot.com",
+            messagingSenderId: "220570554353",
+            appId: "1:220570554353:web:0764b7e3f6c953eaf1be50",
+            measurementId: "G-TW4YWP18MS"
+            };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        console.log(app)
+
+        const db = getFirestore(app);
+        connectFirestoreEmulator(db, 'localhost', 8080)
+
+        //adding data to firestore
+        const saveBtn = document.querySelector(".save")
+        saveBtn.addEventListener("click", async () => {
+            const collectionRef = collection(db, "gadgets")
+            const newGadget = await addDoc(collectionRef, {
+                name: "Phone",
+                os: "Andriod",
+                versiom: "11"
+            });
+            console.log('Created a new gadget: ${newGadget.id}')
+        });
+      </script>
+</body>
+
+</html> 
