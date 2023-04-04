@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     <h3 class="h5">${task.title}</h3>
     <p>${task.description}</p>
     <div>
-      <button class="btn btn-primary btn-delete" data-id="${doc.id}">
+      <button class="btn btn-danger btn-delete" data-id="${doc.id}">
         🗑 Delete
       </button>
       <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
