@@ -4,7 +4,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.1/firebas
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getFirestore, collection, addDoc, 
   getDocs, onSnapshot, deleteDoc, 
-  doc, getDoc, updateDoc, connectFirestoreEmulator} 
+  doc, getDoc, updateDoc } 
 from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js';
 
 

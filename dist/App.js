@@ -1,5 +1,5 @@
-import {connectFirestoreEmulator} 
-from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js';
+//import {connectFirestoreEmulator} from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js';
+
 import {
   onGetTasks,
   saveTask,
@@ -7,7 +7,7 @@ import {
   getTask,
   updateTask,
   getTasks,
-  db
+  //db
 } from "./firebase.js";
 
 const taskForm = document.getElementById("task-form");
@@ -16,7 +16,7 @@ const tasksContainer = document.getElementById("tasks-container");
 let editStatus = false;
 let id = "";
 
-connectFirestoreEmulator(db, 'localhost', 8080)
+//connectFirestoreEmulator(db, 'localhost', 8080)
 
 window.addEventListener("DOMContentLoaded", async (e) => {
   // const querySnapshot = await getTasks();
